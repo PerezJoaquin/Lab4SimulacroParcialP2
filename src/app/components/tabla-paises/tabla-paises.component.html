@@ -1,0 +1,11 @@
+<div id="right-col">
+    <div id="inner-right">
+        <div *ngFor="let pais of paises">
+            <div (click)="select(pais)">
+                <img src="{{pais.flags.png}}" style="width:100px">
+                    {{pais.name.common}}
+            </div>
+        </div>
+    </div>
+</div>
+<button class="btn btn-primary btn-lg btn-block" type="submit" (click)="setPais()">Confirmar</button>

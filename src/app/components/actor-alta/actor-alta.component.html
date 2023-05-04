@@ -1,0 +1,64 @@
+
+<!--
+<form>
+    <div class="form-group">
+        <label>Nombre</label>
+        <input name="nombre" class="form-control" type="text" [(ngModel)]="actorNombre">
+
+        <label>Apellido</label>
+        <input name="apellido" class="form-control" type="text" [(ngModel)]="actorApellido">
+
+        <label>Nacionalidad</label>
+        <input name="nacionalidad" class="form-control" type="text" [(ngModel)]="actorPais">
+
+        <label>Edad</label>
+        <input name="edad" class="form-control" type="number" [(ngModel)]="actorEdad">
+
+        <label>Foto</label>
+        <input name="foto" class="form-control" type="text" [(ngModel)]="actorFoto">
+        <br>
+
+        <button class="btn btn-primary"  (click)="guardar()">Guardar</button>
+    </div>
+</form>-->
+
+<div class="container">
+    <div class="row">
+      <div class="col-md-4 order-md-2 mb-4">
+        <h4 class="mb-3">Nacionalidad</h4>
+        <app-tabla-paises (EnviarPais)="pasarPais($event)"></app-tabla-paises>
+      </div>
+      <div class="col-md-8 order-md-1">
+        <h4 class="mb-3">Subir un actor</h4>
+        <form class="needs-validation" >
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="firstName">Nombres</label>
+              <input type="text" class="form-control" placeholder=""  name="nombre" [(ngModel)]="actorNombre">
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="lastName">Apellido</label>
+              <input type="text" class="form-control"  placeholder=""  name="apellido" [(ngModel)]="actorApellido">
+            </div>
+          </div>
+  
+  
+          <div class="mb-3">
+            <label for="email">Nacionalidad</label>
+            <input type="text" class="form-control" placeholder=""  disabled [(ngModel)]="actorPais" name="pais">
+          </div>
+  
+          <div class="mb-3">
+            <label for="address">Edad</label> 
+            <input type="number" class="form-control"  placeholder="" name="edad" [(ngModel)]="actorEdad">
+          </div>
+  
+          
+          <hr class="mb-3">
+          <button class="btn btn-primary btn-lg btn-block" type="submit" (click)="guardar()">Subir</button>
+
+          
+        </form>
+      </div>
+    </div>
+  </div>
