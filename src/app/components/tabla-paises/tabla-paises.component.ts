@@ -32,5 +32,6 @@ export class TablaPaisesComponent {
   select(pais:any){
     this.paisMandar = pais;
     console.log("select")
+    this.setPais();
   }
 }

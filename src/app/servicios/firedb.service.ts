@@ -55,6 +55,7 @@ export class FiredbService {
       edad: actor.edad,
       nacionalidad: actor.nacionalidad,
     });
+    return true;
   }
 
 }
