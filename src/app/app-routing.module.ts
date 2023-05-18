@@ -8,6 +8,8 @@ import { BienvenidoComponent } from './components/bienvenido/bienvenido.componen
 import { BusquedaComponent } from './components/busqueda/busqueda.component';
 import { PeliculaAltaComponent } from './components/pelicula-alta/pelicula-alta.component';
 import { PeliculaListadoComponent } from './components/pelicula-listado/pelicula-listado.component';
+import { LoginComponent } from './components/login/login.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 const routes: Routes = [
   {path: "actor/alta", component:ActorAltaComponent},
@@ -16,11 +18,15 @@ const routes: Routes = [
   {path: "busqueda", component:BusquedaComponent},
   {path: "pelicula/alta", component:PeliculaAltaComponent},
   {path: "actor/listado", component:PeliculaListadoComponent},
+  {path: "login", component:LoginComponent},
+  { path: 'actor', loadChildren: () => import('./actor/actor.module').then(m => m.ActorModule) },
+  {path: "**", component:BusquedaComponent},
 ];
 
 @NgModule({
   declarations: [],
   imports: [RouterModule.forRoot(routes),CommonModule],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

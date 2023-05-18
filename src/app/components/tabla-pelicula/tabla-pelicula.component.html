@@ -1,4 +1,4 @@
-<div class="container">
+<!--div class="container">
     <div class="row">
         <div class="col-sm">Foto</div>
         <div class="col-sm">Nombre</div>
@@ -11,7 +11,6 @@
         <div class="row">
             <div class="col-sm">
                 <img src="{{pelicula.foto}}" style="height:100px">
-                <!--{{pelicula.foto}}-->
             </div>
             <div class="col-sm">
                 {{pelicula.nombre}}
@@ -27,13 +26,53 @@
             </div>
             <div class="col-sm">
                 <button class="btn btn-secondary" (click)="enviarObjeto(pelicula)">Seleccionar</button>
-            </div>
-            
-            <!--div class="col-sm">
-                Marca: {{producto.marca}} | Precio: ${{producto.precio}} | Stock: {{producto.stock}}
-            </div-->
-        
-        
+            </div>    
         </div>
     </div>
+</div-->
+<div id="right-col">
+    <div id="inner-right">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Foto</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Fecha de estreno</th>
+                    <th scope="col">Cantidad de publico</th>
+                    <th scope="col">Seleccionar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let pelicula of peliculas">
+                    <td><img src="{{pelicula.foto}}" style="height:100px"></td>
+                    <td>{{pelicula.nombre}}</td>
+                    <td>{{pelicula.tipo}}</td>
+                    <td>{{pelicula.fechaDeEstreno}}</td>
+                    <td>{{pelicula.cantidadDePublico}}</td>
+                    <td><button class="btn btn-secondary" (click)="enviarObjeto(pelicula)">Seleccionar</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
+<!--div class="container">
+    <div class="row row-cols-6">
+        <div class="col">Foto</div>
+        <div class="col">Nombre</div>
+        <div class="col">Tipo</div>
+        <div class="col">Fecha de estreno</div>
+        <div class="col">Cantidad de publico</div>
+        <div class="col">Seleccionar</div>
+        
+    </div>
+    <hr class="mb-3">
+    <div class="row row-cols-6" *ngFor="let pelicula of peliculas">
+        <div class="col"><img src="{{pelicula.foto}}" style="height:100px"></div>
+        <div class="col">{{pelicula.nombre}}</div>
+        <div class="col">{{pelicula.tipo}}</div>
+        <div class="col">{{pelicula.fechaDeEstreno}}</div>
+        <div class="col">{{pelicula.cantidadDePublico}}</div>
+        <div class="col"><button class="btn btn-secondary" (click)="enviarObjeto(pelicula)">Seleccionar</button></div>
+    </div>
+</div-->

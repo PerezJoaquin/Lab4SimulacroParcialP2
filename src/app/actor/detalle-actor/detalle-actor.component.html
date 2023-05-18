@@ -1,0 +1,49 @@
+<div class="container" *ngIf="!actorDet">
+    <div class="card">
+        <div class="card-header">
+            Actor
+        </div>
+        <div class="row">
+            <div class="col-md-4 order-md-2 mb-4">
+                
+                <label for="">Nombre:</label>
+                <h5 class="card-title">--</h5>
+                <hr class="mb-3">
+                <label for="">Edad:</label>
+                <h5 class="card-title">--</h5>
+                <hr class="mb-3">
+                <label for="">Nacionalidad:</label>
+                <h5 class="card-title">--</h5>
+                
+            </div>
+            <div class="col-md-6 order-md-1">
+                <img src="assets/default.png" style="width:95%" >
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container" *ngIf="actorDet">
+    <div class="card">
+        <div class="card-header">
+            {{actorDet.nombre+" "+actorDet.apellido}}
+        </div>
+        <div class="row">
+            <div class="col-md-4 order-md-2 mb-4">
+                
+                <label for="">Nombre:</label>
+                <h5 class="card-title">{{actorDet.nombre+" "+actorDet.apellido}}</h5>
+                <hr class="mb-3">
+                <label for="">Edad:</label>
+                <h5 class="card-title">{{actorDet.edad}}</h5>
+                <hr class="mb-3">
+                <label for="">Nacionalidad:</label>
+                <h5 class="card-title">{{actorDet.nacionalidad.name.common}}</h5>
+                
+            </div>
+            <div class="col-md-6 order-md-1">
+                <img src="{{actorDet.foto}}" style="width:95%" >
+            </div>
+        </div>
+    </div>
+</div>

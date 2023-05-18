@@ -22,6 +22,9 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 import { TablaPaisesComponent } from './components/tabla-paises/tabla-paises.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './components/login/login.component';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+
 
 @NgModule({
   declarations: [
@@ -35,6 +38,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     TablaPeliculaComponent,
     DetallePeliculaComponent,
     TablaPaisesComponent,
+    LoginComponent,
     
   ],
   imports: [
@@ -46,7 +50,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFireStorageModule
   ],
   providers: [{ provide: FIREBASE_OPTIONS, useValue: environment.firebase }],
   bootstrap: [AppComponent]

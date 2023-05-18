@@ -11,19 +11,21 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators, React
 })
 export class ActorAltaComponent {
 
-  public forma!: FormGroup
+  public forma!: FormGroup;
   
   actorNombre!:string;
   actorApellido!:string;
   actorPais!:string;
   actorEdad!:number;
-  actorFoto!:string;
+  actorFoto='';
+  newimage='';
 
-  paisDis=false;
 
   paises:any;
   url = 'https://restcountries.com/v3.1/all';
   paisPasado:any;
+
+  showbar=false;
     
   constructor(private http:HttpClient, private fbd:FiredbService, private fb: FormBuilder){
     console.log(this.treaerPaises());
@@ -46,15 +48,19 @@ export class ActorAltaComponent {
     });
   }
   
-  guardar(){
+  async guardar(){
+    this.showbar=true;
     console.log({nombre: this.actorNombre,
       apellido:this.actorApellido,
       nacionalidad: this.actorPais,
       edad:this.actorEdad});
-    if(this.fbd.guardarActor({nombre: this.actorNombre,
+    if(await this.fbd.guardarActor({nombre: this.actorNombre,
                           apellido: this.actorApellido,
-                          nacionalidad: this.actorPais,
-                          edad: this.actorEdad})){
+                          nacionalidad: this.paisPasado,
+                          edad: this.actorEdad,
+                          foto:this.actorFoto})){
+      this.showbar=false;
+      this.resetCampos();
       Swal.fire({
         title: 'Éxito!',
         text: 'El actor ha sido guardado con éxito',
@@ -62,6 +68,7 @@ export class ActorAltaComponent {
         confirmButtonText: 'OK!'
       })
     }else{
+      this.showbar=false;
       Swal.fire({
         title: 'Error!',
         text: 'Ocurrió un erro guardando el actor',
@@ -76,6 +83,29 @@ export class ActorAltaComponent {
     this.paisPasado = $event;
     this.actorPais = this.paisPasado.name.common;
   }
-  
 
+  onFileSelected(event:any){
+    if(event.target.files && event.target.files[0]){
+      const reader = new FileReader();
+      reader.onload=( (image)=>{
+     
+          this.newimage = image.target!.result as string;
+
+      })
+      reader.readAsDataURL(event.target.files[0])
+    }
+    const file = event.target.files[0];
+    this.actorFoto = file;
+    console.log("block", this.forma.invalid)
+  }
+  
+  resetCampos(){
+    this.actorNombre='';
+    this.actorApellido='';
+    this.actorPais='';
+    this.actorEdad=0;
+    this.actorFoto='';
+    this.newimage='';
+
+  }
 }

@@ -1,1 +1,17 @@
-<p>actor-listado works!</p>
+<div id="right-col">
+    <div id="inner-right">
+        <div *ngFor="let actor of actores">
+            <div (click)="select(actor)" style="padding:5px">
+                <tr>
+                    <td>
+                        <img src="{{actor.foto}}" style="height:100px">
+                    </td>
+                    <td>
+                        {{actor.nombre + " " + actor.apellido}}
+                    </td>
+                </tr>
+                <hr class="mb-3">
+            </div>
+        </div>
+    </div>
+</div>

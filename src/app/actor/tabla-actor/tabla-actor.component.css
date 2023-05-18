@@ -1,17 +1,17 @@
 #left-col, #right-col {
     /*display: inline-block;*/
-    width: 320px;
+    width: 100%;
     height: 100%;
     max-height: 100%;
-    margin-right: 20px;
+    /*margin-right: 20px;*/
     /*border: 2px black solid;x
     vertical-align: top;*/
     overflow: hidden;
 }
 
 #inner-right {
-    height: 300px;
-    max-height: 300px;
+    height: 500px;
+    max-height: 500px;
     overflow-y: scroll;
-    background: ivory;
+    /*background: ivory;*/
 }

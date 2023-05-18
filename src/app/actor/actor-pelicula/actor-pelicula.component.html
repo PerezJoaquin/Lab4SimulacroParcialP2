@@ -1,0 +1,36 @@
+
+  
+  <main role="main">
+  
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron" >
+      <div class="container" >
+        <!--app-tabla-pelicula (EviarADetalle)="pasarDetalle($event)"></app-tabla-pelicula-->
+        <app-tabla-actor (EviarADetalle)="pasarDetalle($event)"
+                          (EviarAPelicula)="pasarPelicula($event)"
+                          (EviarAPais)="pasarPais($event)"
+        ></app-tabla-actor>
+      </div>
+    </div>
+    <hr>
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-4">
+            <app-tabla-peliculas-actor [peliculaDet]="peliculaMostrar"></app-tabla-peliculas-actor>
+        </div>
+        <div class="col-md-4">
+
+            <!--app-detalle-pelicula [peliculaDet]="peliculaMostrar" ></app-detalle-pelicula-->
+            <app-detalle-pais [paisDet]="paisMostrar"></app-detalle-pais>
+        </div>
+        <div class="col-md-4">
+            <app-detalle-actor [actorDet]="detalleMostrar"></app-detalle-actor>
+        </div>
+      </div>
+  
+      <hr>
+  
+    </div> <!-- /container -->
+  
+  </main>

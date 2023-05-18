@@ -1,0 +1,81 @@
+<!--div>
+    <div class="card">
+        <div class="card-header">
+            Kill bill
+        </div>
+        <div class="card-body">
+            <div style="width:100%">
+                <div style="width:50%" >
+                    
+                        <img src="assets/killbill.png" style="width:95%" >   
+                    
+                </div>
+                <div style="width:50%">
+                    <label for="">Tipo:</label>
+                    <h5 class="card-title">Drama</h5>
+                    <hr class="mb-3">
+                    <label for="">Fecha:</label>
+                    <h5 class="card-title">09/02/1984</h5>
+                    <hr class="mb-3">
+                    <label for="">Publico:</label>
+                    <h5 class="card-title">126</h5>
+                </div>
+            </div>
+      </div>
+</div-->
+<div id="right-col">
+    <div id="inner-right">
+        <div *ngIf="peliculaDet">
+        <div *ngFor="let peli of peliculas" >
+            <div class="container" >
+                <div class="card" *ngIf="peli.actor.nombre == peliculaDet.nombre">
+                    <div class="card-header">
+                        {{peli.nombre}}
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 order-md-2 mb-4">
+                            
+                            <label for="">Tipo:</label>
+                                <h5 class="card-title">{{peli.tipo}}</h5>
+                                <hr class="mb-3">
+                                <label for="">Fecha de estreno:</label>
+                                <h5 class="card-title">{{peli.fechaDeEstreno}}</h5>
+                                <hr class="mb-3">
+                                <label for="">Publico:</label>
+                                <h5 class="card-title">{{peli.cantidadDePublico}}</h5>
+                            
+                        </div>
+                        <div class="col-md-6 order-md-1">
+                            <img src="{{peli.foto}}" style="width:95%" >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+            <div class="container" *ngIf="!peliculaDet">
+                <div class="card">
+                    <div class="card-header">
+                        Peliculas
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 order-md-2 mb-4">
+                            <label for="">Tipo:</label>
+                            <h5 class="card-title">--</h5>
+                            <hr class="mb-3">
+                            <label for="">Fecha:</label>
+                            <h5 class="card-title">--/--/----</h5>
+                            <hr class="mb-3">
+                            <label for="">Publico:</label>
+                            <h5 class="card-title">--</h5>
+                        </div>
+                        <div class="col-md-6 order-md-1">
+                            <img src="assets/default.png" style="width:95%" >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+
+    </div>
+</div>

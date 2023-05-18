@@ -1,0 +1,31 @@
+<div class="container" *ngIf="!paisDet">
+    <div class="card">
+        <div class="card-header">
+            {{pais.name.common}}
+        </div>
+        <br>
+        <img src="{{pais.flags.png}}" style="width:50%" class="center">
+        <br>
+        <label for="">Cantidad de habitantes:</label>
+        <h5 class="card-title">--</h5>
+    </div>
+</div>
+
+<div class="container" *ngIf="paisDet">
+    <div class="card">
+        <div class="card-header">
+            {{paisDet.name.common}}
+        </div>
+        <br>
+        <img src="{{paisDet.flags.png}}" style="width:50%" class="center">
+        <br>
+        <div style="padding-left: 5px;">
+            <label for="">Cantidad de habitantes:</label>
+            <h5 class="card-title">{{paisDet.population}}</h5>
+            <hr class="mb-3">
+            <label for="">Región:</label>
+            <h5 class="card-title">{{paisDet.region}}</h5>
+        </div>
+        
+    </div>
+</div>
